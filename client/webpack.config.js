@@ -40,7 +40,7 @@ module.exports = () => {
         description: 'Takes notes with JavaScript syntax highlighting',
         background_color: '#225ca3',
         icons: [{
-          src: './client/src/images/logo.png',
+          src: './src/images/logo.png',
           type: 'image/png',
           sizes: '512x512',
           purpose: 'any maskable'
