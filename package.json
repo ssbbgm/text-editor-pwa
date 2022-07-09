@@ -7,7 +7,7 @@
     "start:dev": "",
     "start": "",
     "server": "",
-    "build": "webpack",
+    "build": "",
     "install": "",
     "client": ""
   },

@@ -28,8 +28,23 @@ module.exports = () => {
         swSrc: './src/sw.js',
         swDest: 'service-worker.js',
       }),
+      new WebpackPwaManifest({
+        //Create a manifest.json:
+        name: 'Just Another Text Editor',
+        orientation: 'portrait',
+        display: 'standalone',
+        short_name: 'J.A.T.E',
+        start_url: '/',
+        description: 'Takes notes with JavaScript syntax highlighting',
+        background_color: '#225ca3',
+        icons: [{
+          src: './client/src/images/logo.png',
+          type: 'image/png',
+          sizes: '512x512',
+          purpose: 'any maskable'
+        }]
+      }),
     ],
-
     module: {
       rules: [
         {
