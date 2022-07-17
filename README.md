@@ -9,6 +9,9 @@
 ## Description
 The app  is a single-page application that meets the PWA criteria. Additionally, it features a number of data persistence techniques that serve as redundancy in case one of the options is not supported by the browser. The applicationn also functions offline.
 
+## Deployed Link
+https://text-editor-pwa-ssb.herokuapp.com/
+
 ## Table of Contents
 
 - [License](#license)
@@ -27,7 +30,7 @@ Click the install button and and you'll have access to the app and it's features
 To help a developer create code snippets and notes, even if they don't ahave an internet connection,
 
 ## Visuals
-![This is a screenshot/demo of the project.](Insert Picture or Link Info Here)
+![This is a screenshot/demo of the project.](./client/src/images/JATE.png)
 
 ## Tests
 
