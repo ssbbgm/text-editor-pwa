@@ -1,7 +1,8 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
-const { InjectManifest } = require('workbox-webpack-plugin');
 const path = require('path');
+const { InjectManifest } = require('workbox-webpack-plugin');
+
 
 
 // TODO: Add and configure workbox plugins for a service worker and manifest file.
@@ -9,51 +10,54 @@ const path = require('path');
 
 module.exports = () => {
   return {
-    mode: 'development',
+    mode: "development",
     entry: {
-      main: './src/js/index.js',
-      install: './src/js/install.js'
+      main: "./src/js/index.js",
+      install: "./src/js/install.js",
     },
     output: {
-      filename: '[name].bundle.js',
-      path: path.resolve(__dirname, 'dist'),
+      filename: "[name].bundle.js",
+      path: path.resolve(__dirname, "dist"),
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: './index.html',
-        title: 'Webpack Plugin',
-        favicon: './favicon.ico'
+        template: "./index.html",
+        title: "J.A.T.E.",
+        favicon: "./favicon.ico",
       }),
       new InjectManifest({
         swSrc: "./src-sw.js",
         swDest: "src-sw.js",
       }),
       new WebpackPwaManifest({
-        //Create a manifest.json:
         fingerprints: false,
         inject: true,
-        name: 'Just Another Text Editor',
-        short_name: 'J.A.T.E',
-        start_url: '/',
-        publicPath: '/',
-        description: 'Takes notes with JavaScript syntax highlighting',
-        background_color: '#225ca3',
-        theme_color: '#225ca3',
-        icons: [{
-          src: './src/images/logo.png',
-          type: 'image/png',
-          sizes: '512x512',
-          purpose: 'any maskable'
-        }]
+        name: "Just Another Text Editor",
+        short_name: "J.A.T.E.",
+        description: "Takes notes with JavaScript syntax highlighting!",
+        background_color: "#225ca3",
+        theme_color: "#225ca3",
+        start_url: "./",
+        publicPath: "./",
+        icons: [
+          {
+            src: path.resolve("src/images/logo.png"),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join("assets", "icons"),
+          },
+        ],
       }),
     ],
+
     module: {
       rules: [
+        // uses regex to find all .css files and apply these loaders to them
         {
           test: /\.css$/i,
           use: ["style-loader", "css-loader"],
         },
         {
+          // uses regex to find all .js files that aren't in the node_modules folder and applies the babel loader
           test: /\.m?js$/,
           exclude: /node_modules/,
           use: {
